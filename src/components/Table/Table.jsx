@@ -9,26 +9,31 @@ export const Table = () => {
     const data = useMemo(() => MOCK_DATA, [])
 
     const tableInstance = useTable(
-        {columns, data},
+        {columns, 
+            data, 
+            defaultColumn: {
+                width: 100, 
+            },
+        },
         useBlockLayout,
         useResizeColumns
     )
 
-    const { getTableProps, getTableBodyProps, headerGroups, footerGroups, rows, prepareRow} = tableInstance
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance
     return (
         <table {...getTableProps()}>
             <thead>
                 {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
-                    {headerGroup.headers.map((column) => (
-                        <th {...column.getHeaderProps()}>
-                        {column.render('Header')}
-                        <div
-                            {...column.getResizerProps()}
-                            className={`resizer ${column.isResizing ? "isResizing" : ""}`}
-                        />
-                        </th>
-                    ))}
+                        {headerGroup.headers.map((column) => (
+                            <th {...column.getHeaderProps()}>
+                            {column.render('Header')}
+                                <div
+                                    {...column.getResizerProps()}
+                                    className={`resizer ${column.isResizing ? "isResizing" : ""}`}
+                                />
+                            </th>
+                        ))}
                     </tr>
                 ))}
             </thead>
@@ -37,12 +42,11 @@ export const Table = () => {
                     prepareRow(row)
                     return (
                         <tr {...row.getRowProps()}>
-                        {row.cells.map((cell) => {
-                            return <td {...cell.getCellProps()}>
-                            {cell.render('Cell')}</td>
-                                })}
+                            {row.cells.map((cell) => {
+                                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                            })}
                         </tr>
-                        )
+                    )
                     })
                 }
             </tbody>

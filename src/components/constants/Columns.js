@@ -1,27 +1,51 @@
 export const Columns = [
     {
-      Header: 'Id',
-      accessor: 'id',
+      Header: 'Наименование',
+      accessor: 'name',
+      width: 425,
+      minWidth: 120
     },
     {
-      Header: 'Имя',
-      accessor: 'first_name',
+      Header: 'Раздел',
+      accessor: 'chapter',
+      width: 74,
+      minWidth: 50
     },
     {
-      Header: 'Фамилия',
-      accessor: 'last_name',
+      Header: 'Услуги',
+      accessor: 'services',
+      width: 72,
+      minWidth: 50
     },
     {
-      Header: 'День рождения',
-      accessor: 'date_of_birth',
+      Header: 'Наименование BE',
+      accessor: 'name_be',
+      width: 348,
+      minWidth: 120
     },
     {
-      Header: 'Страна',
-      accessor: 'country',
+      Header: 'Наименование EN',
+      accessor: 'name_en',
+      width: 348,
+      minWidth: 120
     },
     {
-      Header: 'Телефон',
-      accessor: 'phone',
+      Header: 'Буква при выдаче',
+      accessor: 'letter',
+      width: 95,
+      minWidth: 50
+    },
+    {
+      Header: 'Начало-конец работы',
+      accessor: 'start_end',
+      width: 123,
+      minWidth: 50
+    },
+    {
+      Header: 'Активный',
+      accessor: 'active_state',
+      width: 94,
+      minWidth: 50
     },
 ];
 export default Columns
